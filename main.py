@@ -9,6 +9,20 @@ else:
 clear()
 link = 'https://www.instagram.com/reel/CmBJpVaP3VO/?igshid=YmMyMTA2M2Y='
 
+def linkType(link):
+	link = link.lstrip("https://").lstrip("http://").lstrip("www.")
+	res = None
+	if (
+		link.startswith("instagram.com/reel/") and
+		(
+			link.split("/")[-1].startswith("?igshid=") or
+			link.split("/")[-1].startswith("&igshid=")
+		)
+	): res = "ig"
+	elif (
+
+	)
+
 """
 # youtube
 # https://www.youtube.com/shorts/IGvQY07a6g8
@@ -30,11 +44,9 @@ title = stream.title
 # Insta
 # https://www.instagram.com/reel/CmBJpVaP3VO/?igshid=YmMyMTA2M2Y=
 
-src = "insta"
-title = "test"
-ext = "mp4"
-
 ##############
+# cas youtube
+"""
 title += " "+src
 title = title.split(" ")
 for i in range(len(title)): title[i] = title[i].capitalize()
@@ -42,6 +54,7 @@ title = "".join(title)
 
 filename = f"{title}.{ext}"
 output = f"downloads"
+"""
 ##############
 
 """
@@ -52,6 +65,7 @@ stream.download(
 )
 """
 
+"""
 # insta
 code = link.split("instagram.com/reel/")[-1].split("/")[0]
 ig = instaloader.Instaloader()
@@ -61,3 +75,6 @@ ig.download_post(
 	post = post,
 	target = output
 )
+
+# garder que le mp4
+"""
